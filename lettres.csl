@@ -152,6 +152,16 @@
       </else>
     </choose>
   </macro>
+  <macro name="title-short-or-title">
+    <choose>
+      <if variable="title-short">
+        <text variable="title-short" text-case="capitalize-first" font-style="italic" suffix="..."/>
+      </if>
+      <else>
+        <text variable="title" text-case="capitalize-first" font-style="italic"/>
+      </else>
+    </choose>
+  </macro>
   <macro name="enligne">
     <choose>
       <if variable="URL" match="any">
@@ -472,8 +482,9 @@
           <text term="ibid" form="long" font-style="italic" text-case="capitalize-first" suffix="."/>
         </else-if>
         <else-if position="subsequent">
-          <group>
-            <text macro="contributors-notes" font-variant="normal" suffix=", "/>
+          <group delimiter=", ">
+            <text macro="contributors-notes" font-variant="normal"/>
+            <text macro="title-short-or-title"/>
             <text value="op.&#160;cit." font-style="italic"/>
           </group>
           <group>
