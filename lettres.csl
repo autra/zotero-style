@@ -87,22 +87,6 @@
       <name sort-separator=" " and="text" delimiter=", " delimiter-precedes-last="never"/>
     </names>
   </macro>
-  <macro name="editor">
-    <names variable="editor" delimiter=", ">
-      <label form="short" suffix=". "/>
-      <name form="long" and="text" delimiter=", " delimiter-precedes-last="never">
-        <name-part name="family" text-case="capitalize-first"/>
-      </name>
-    </names>
-  </macro>
-  <macro name="editor-note">
-    <names variable="editor" delimiter=", ">
-      <label form="verb-short" suffix=" "/>
-      <name sort-separator=" " initialize-with=". " and="text" delimiter=", " delimiter-precedes-last="never">
-        <name-part name="family" text-case="uppercase"/>
-      </name>
-    </names>
-  </macro>
   <macro name="container-contributors">
     <choose>
       <if variable="container-title">
@@ -110,17 +94,17 @@
         <choose>
           <if variable="container-author">
             <names variable="container-author">
-              <name form="long" delimiter=", " delimiter-precedes-last="always" suffix=". ">
+              <name form="long" delimiter=", " delimiter-precedes-last="always" suffix=", ">
                 <name-part name="family" text-case="capitalize-first"/>
               </name>
             </names>
           </if>
           <else-if variable="editor">
-            <names variable="editor" suffix=". ">
+            <names variable="editor" suffix=", ">
               <name form="long" delimiter=", " delimiter-precedes-last="always">
                 <name-part name="family" text-case="capitalize-first"/>
               </name>
-              <label form="short" prefix=", (" suffix=".)"/>
+              <label form="short" prefix=" (" suffix=".)"/>
             </names>
           </else-if>
         </choose>
@@ -134,11 +118,6 @@
               </if>
             </choose>
           </else>
-        </choose>
-        <choose>
-          <if variable="container-author">
-            <text macro="editor" prefix=", "/>
-          </if>
         </choose>
       </if>
     </choose>
@@ -381,11 +360,10 @@
             <else-if type="article-magazine article-newspaper" match="any">
               <group delimiter=", ">
                 <text macro="title"/>
-                <text macro="publication-title"/>
+                <text macro="container-contributors"/>
                 <text macro="volume-issue" text-case="capitalize-first"/>
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
-                <text macro="editor" text-case="capitalize-first"/>
                 <text macro="publisher-book-magazine-newspaper"/>
                 <text macro="collection"/>
                 <text variable="page" prefix="p.&#160;"/>
@@ -394,11 +372,10 @@
             <else-if type="article-journal">
               <group delimiter=", ">
                 <text macro="title"/>
-                <text macro="publication-title"/>
+                <text macro="container-contributors"/>
                 <text macro="volume-issue" text-case="capitalize-first"/>
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
-                <text macro="editor" text-case="capitalize-first"/>
                 <text macro="publisher-book-journal"/>
                 <text macro="collection"/>
                 <text variable="page" prefix="p.&#160;"/>
@@ -417,7 +394,6 @@
                 <text macro="container-contributors"/>
                 <text macro="volume" text-case="capitalize-first"/>
                 <text macro="translator" text-case="capitalize-first"/>
-                <text macro="editor" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
                 <text macro="collection"/>
@@ -427,10 +403,9 @@
             <else>
               <group delimiter=", ">
                 <text macro="title"/>
-                <text macro="publication-title"/>
+                <text macro="container-contributors"/>
                 <text macro="volume-issue" text-case="capitalize-first"/>
                 <text macro="translator" text-case="capitalize-first"/>
-                <text macro="editor" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
                 <text macro="collection"/>
@@ -498,7 +473,6 @@
             <text macro="container-contributors"/>
             <text macro="volume" text-case="capitalize-first"/>
             <text macro="translator" text-case="capitalize-first"/>
-            <text macro="editor" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
             <text macro="publisher-book"/>
             <text macro="collection"/>
@@ -508,11 +482,10 @@
         <else-if type="article-magazine article-newspaper" match="any">
           <group delimiter=", ">
             <text macro="title"/>
-            <text macro="publication-title"/>
+            <text macro="container-contributors"/>
             <text macro="volume-issue" text-case="capitalize-first"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
-            <text macro="editor" text-case="capitalize-first"/>
             <text macro="publisher-book-magazine-newspaper"/>
             <text macro="collection"/>
             <text variable="page" prefix="p.&#160;"/>
@@ -521,11 +494,10 @@
         <else-if type="article-journal">
           <group delimiter=", ">
             <text macro="title"/>
-            <text macro="publication-title"/>
+            <text macro="container-contributors"/>
             <text macro="volume-issue" text-case="capitalize-first"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
-            <text macro="editor" text-case="capitalize-first"/>
             <text macro="publisher-book-journal"/>
             <text macro="collection"/>
             <text variable="page" prefix="p.&#160;"/>
@@ -534,11 +506,10 @@
         <else>
           <group delimiter=", ">
             <text macro="title"/>
-            <text macro="publication-title"/>
+            <text macro="container-contributors"/>
             <text macro="volume-issue" text-case="capitalize-first"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
-            <text macro="editor" text-case="capitalize-first"/>
             <text macro="publisher-book"/>
             <text macro="collection"/>
             <text variable="page" prefix="p.&#160;"/>
