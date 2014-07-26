@@ -40,6 +40,17 @@
       <date-part name="year" range-delimiter="-"/>
     </date>
   </macro>
+  <macro name="issued-long-if-day">
+    <choose>
+      <if has-day="issued">
+        <date variable="issued">
+          <date-part name="day" suffix=" " range-delimiter="-"/>
+          <date-part name="month" suffix=" " text-case="lowercase" range-delimiter="-"/>
+          <date-part name="year" range-delimiter="-"/>
+        </date>
+      </if>
+    </choose>
+  </macro>
   <macro name="contributors">
     <names variable="author" suffix=", ">
       <name name-as-sort-order="all" form="long" delimiter=", " and="text" delimiter-precedes-last="never" sort-separator=", ">
@@ -363,6 +374,7 @@
           <group delimiter=", ">
             <text macro="contributors-notes" font-variant="normal"/>
             <text macro="title-short-or-title"/>
+            <text macro="issued-long-if-day"/>
             <text value="op.&#160;cit." font-style="italic"/>
           </group>
           <group>
