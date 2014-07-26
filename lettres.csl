@@ -35,9 +35,9 @@
   </locale>
   <macro name="issued-long">
     <date variable="issued">
-      <date-part name="day" suffix=" "/>
-      <date-part name="month" suffix=" " text-case="lowercase"/>
-      <date-part name="year"/>
+      <date-part name="day" suffix=" " range-delimiter="-"/>
+      <date-part name="month" suffix=" " text-case="lowercase" range-delimiter="-"/>
+      <date-part name="year" range-delimiter="-"/>
     </date>
   </macro>
   <macro name="contributors">
@@ -205,9 +205,7 @@
         <text variable="publisher-place"/>
       </else-if>
     </choose>
-    <date variable="issued">
-      <date-part name="year"/>
-    </date>
+    <text macro="issued-long"/>
     <text macro="publisher-number-of-pages"/>
     <choose>
       <if variable="number-of-volumes">
@@ -220,9 +218,7 @@
   </macro>
   <macro name="publisher-book">
     <text macro="publisher" suffix=", "/>
-    <date variable="issued">
-      <date-part name="year"/>
-    </date>
+    <text macro="issued-long"/>
     <text macro="publisher-number-of-pages"/>
     <choose>
       <if variable="number-of-volumes">
@@ -235,11 +231,7 @@
   </macro>
   <macro name="publisher-book-magazine-newspaper">
     <text macro="publisher" suffix=", "/>
-    <date variable="issued">
-      <date-part name="day" suffix=" "/>
-      <date-part name="month" form="long" suffix=" "/>
-      <date-part name="year"/>
-    </date>
+    <text macro="issued-long"/>
     <text macro="publisher-number-of-pages"/>
     <choose>
       <if variable="number-of-volumes">
@@ -252,10 +244,7 @@
   </macro>
   <macro name="publisher-book-journal">
     <text macro="publisher" suffix=", "/>
-    <date variable="issued">
-      <date-part name="month" form="long" suffix=" "/>
-      <date-part name="year"/>
-    </date>
+    <text macro="issued-long"/>
     <text macro="publisher-number-of-pages"/>
     <choose>
       <if variable="number-of-volumes">
