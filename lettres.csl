@@ -175,23 +175,15 @@
       </else-if>
     </choose>
   </macro>
-  <macro name="publisher-report">
-    <text macro="publisher"/>
+  <macro name="publisher-number-of-pages">
     <choose>
-      <if variable="issued">
-        <text macro="issued-long" prefix=", "/>
+      <if variable="locator" match="none">
+        <choose>
+          <if variable="number-of-pages">
+            <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
+          </if>
+        </choose>
       </if>
-      <else>
-        <text value=", [s.d.]"/>
-      </else>
-    </choose>
-    <choose>
-      <if variable="number-of-pages">
-        <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
-      </if>
-      <else-if variable="page">
-        <text variable="page" prefix=", p.&#160;"/>
-      </else-if>
     </choose>
   </macro>
   <macro name="publisher-thesis">
@@ -206,20 +198,14 @@
     <date variable="issued">
       <date-part name="year"/>
     </date>
+    <text macro="publisher-number-of-pages"/>
     <choose>
-      <if variable="number-of-pages">
-        <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
+      <if variable="number-of-volumes">
+        <group>
+          <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
+          <text term="volume" form="short" suffix="."/>
+        </group>
       </if>
-      <else>
-        <choose>
-          <if variable="number-of-volumes">
-            <group>
-              <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
-              <text term="volume" form="short" suffix="."/>
-            </group>
-          </if>
-        </choose>
-      </else>
     </choose>
   </macro>
   <macro name="publisher-book">
@@ -227,20 +213,14 @@
     <date variable="issued">
       <date-part name="year"/>
     </date>
+    <text macro="publisher-number-of-pages"/>
     <choose>
-      <if variable="number-of-pages">
-        <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
+      <if variable="number-of-volumes">
+        <group>
+          <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
+          <text term="volume" form="short" suffix="."/>
+        </group>
       </if>
-      <else>
-        <choose>
-          <if variable="number-of-volumes">
-            <group>
-              <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
-              <text term="volume" form="short" suffix="."/>
-            </group>
-          </if>
-        </choose>
-      </else>
     </choose>
   </macro>
   <macro name="publisher-book-magazine-newspaper">
@@ -250,20 +230,14 @@
       <date-part name="month" form="long" suffix=" "/>
       <date-part name="year"/>
     </date>
+    <text macro="publisher-number-of-pages"/>
     <choose>
-      <if variable="number-of-pages">
-        <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
+      <if variable="number-of-volumes">
+        <group>
+          <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
+          <text term="volume" form="short" suffix="."/>
+        </group>
       </if>
-      <else>
-        <choose>
-          <if variable="number-of-volumes">
-            <group>
-              <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
-              <text term="volume" form="short" suffix="."/>
-            </group>
-          </if>
-        </choose>
-      </else>
     </choose>
   </macro>
   <macro name="publisher-book-journal">
@@ -272,20 +246,14 @@
       <date-part name="month" form="long" suffix=" "/>
       <date-part name="year"/>
     </date>
+    <text macro="publisher-number-of-pages"/>
     <choose>
-      <if variable="number-of-pages">
-        <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
+      <if variable="number-of-volumes">
+        <group>
+          <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
+          <text term="volume" form="short" suffix="."/>
+        </group>
       </if>
-      <else>
-        <choose>
-          <if variable="number-of-volumes">
-            <group>
-              <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
-              <text term="volume" form="short" suffix="."/>
-            </group>
-          </if>
-        </choose>
-      </else>
     </choose>
   </macro>
   <macro name="broadcast">
