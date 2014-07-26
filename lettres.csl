@@ -165,6 +165,13 @@
       </else-if>
     </choose>
   </macro>
+  <macro name="page">
+    <choose>
+      <if variable="locator" match="none">
+        <text variable="page" prefix="p.&#160;"/>
+      </if>
+    </choose>
+  </macro>
   <macro name="publisher-number-of-pages">
     <choose>
       <if variable="locator" match="none">
@@ -285,7 +292,7 @@
       <text variable="section"/>
       <text macro="volume"/>
       <text macro="issue"/>
-      <text variable="page" prefix="p.&#160;"/>
+      <text macro="page"/>
     </group>
   </macro>
   <macro name="interview">
@@ -366,7 +373,7 @@
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book-magazine-newspaper"/>
                 <text macro="collection"/>
-                <text variable="page" prefix="p.&#160;"/>
+                <text macro="page"/>
               </group>
             </else-if>
             <else-if type="article-journal">
@@ -378,7 +385,7 @@
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book-journal"/>
                 <text macro="collection"/>
-                <text variable="page" prefix="p.&#160;"/>
+                <text macro="page"/>
               </group>
             </else-if>
             <else-if type="webpage">
@@ -397,7 +404,7 @@
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
                 <text macro="collection"/>
-                <text variable="page" prefix="p.&#160;"/>
+                <text macro="page"/>
               </group>
             </else-if>
             <else>
@@ -409,7 +416,7 @@
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
                 <text macro="collection"/>
-                <text variable="page" prefix="p.&#160;"/>
+                <text macro="page"/>
               </group>
             </else>
           </choose>
