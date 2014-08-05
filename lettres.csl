@@ -132,15 +132,32 @@
       </else>
     </choose>
   </macro>
-  <macro name="title-short-or-title">
-    <choose>
-      <if variable="title-short">
-        <text variable="title-short" text-case="capitalize-first" font-style="italic" suffix="..."/>
-      </if>
-      <else>
-        <text variable="title" text-case="capitalize-first" font-style="italic"/>
-      </else>
-    </choose>
+  <macro name="title-subsequent">
+    <group delimiter=", ">
+      <choose>
+        <if type="chapter article article-magazine article-newspaper article-journal entry entry-dictionary entry-encyclopedia paper-conference">
+        <text variable="title" text-case="capitalize-first" quotes="true"/>
+          <choose>
+            <if variable="title-short">
+              <text variable="title-short" text-case="capitalize-first" font-style="italic" suffix="..."/>
+            </if>
+            <else>
+              <text variable="container-title" text-case="capitalize-first" font-style="italic"/>
+            </else>
+          </choose>
+        </if>
+        <else>
+          <choose>
+            <if variable="title-short">
+              <text variable="title-short" text-case="capitalize-first" font-style="italic" suffix="..."/>
+            </if>
+            <else>
+              <text variable="title" text-case="capitalize-first" font-style="italic"/>
+              </else>
+            </choose>
+        </else>
+      </choose>
+    </group>
   </macro>
   <macro name="enligne">
     <choose>
@@ -357,7 +374,7 @@
         <else-if position="subsequent">
           <group delimiter=", ">
             <text macro="contributors-notes" font-variant="normal"/>
-            <text macro="title-short-or-title"/>
+            <text macro="title-subsequent"/>
             <text value="op.&#160;cit." font-style="italic"/>
           </group>
           <group>
