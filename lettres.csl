@@ -281,7 +281,7 @@
   </macro>
   <macro name="collection">
     <group>
-      <group delimiter=", " prefix="Collection " suffix="">
+      <group delimiter=", " prefix="collection ">
         <text variable="collection-title" text-case="capitalize-first"/>
         <text variable="collection-number" prefix="n°"/>
       </group>
