@@ -145,25 +145,16 @@
   <macro name="enligne">
     <choose>
       <if variable="URL" match="any">
-        <text value="en ligne : " prefix=" [" text-case="capitalize-first"/>
-        <text variable="URL" suffix="]"/>
+        <text value="en ligne : "/>
+        <text variable="URL" prefix="&lt;" suffix="&gt;"/>
       </if>
     </choose>
   </macro>
   <macro name="publisher">
-    <choose>
-      <if variable="publisher-place">
+    <group delimiter=", ">
         <text variable="publisher-place"/>
-        <choose>
-          <if variable="publisher">
-            <text variable="publisher" prefix=", "/>
-          </if>
-        </choose>
-      </if>
-      <else-if variable="publisher">
-        <text variable="publisher"/>
-      </else-if>
-    </choose>
+        <text variable="publisher" prefix="édition "/>
+    </group>
   </macro>
   <macro name="page">
     <choose>
@@ -204,7 +195,7 @@
     </choose>
   </macro>
   <macro name="publisher-book">
-    <text macro="publisher" suffix=", "/>
+    <text macro="publisher"/>
     <text macro="issued-long"/>
     <text macro="publisher-number-of-pages"/>
     <choose>
@@ -279,7 +270,7 @@
   </macro>
   <macro name="access">
     <group>
-      <text term="accessed" text-case="capitalize-first"/>
+      <text term="accessed" suffix=" "/>
       <date variable="accessed">
         <date-part name="day" suffix=" "/>
         <date-part name="month" suffix=" "/>
@@ -322,6 +313,8 @@
                 <text macro="title"/>
                 <text macro="container-contributors"/>
                 <text macro="volume" text-case="capitalize-first"/>
+                <text macro="enligne"/>
+                <text macro="access"/>
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
@@ -334,6 +327,8 @@
                 <text macro="title"/>
                 <text macro="container-contributors"/>
                 <text macro="volume-issue" text-case="capitalize-first"/>
+                <text macro="enligne"/>
+                <text macro="access"/>
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
@@ -392,8 +387,10 @@
           </group>
         </if>
         <else-if type="webpage">
-          <group delimiter=". ">
+          <group delimiter=", ">
             <text macro="title" suffix=","/>
+            <text macro="enligne"/>
+            <text macro="access"/>
           </group>
         </else-if>
         <else-if type="chapter">
@@ -401,6 +398,8 @@
             <text macro="title"/>
             <text macro="container-contributors"/>
             <text macro="volume" text-case="capitalize-first"/>
+            <text macro="enligne"/>
+            <text macro="access"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
             <text macro="publisher-book"/>
@@ -413,23 +412,14 @@
             <text macro="title"/>
             <text macro="container-contributors"/>
             <text macro="volume-issue" text-case="capitalize-first"/>
+            <text macro="enligne"/>
+            <text macro="access"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
             <text macro="publisher-book"/>
             <text macro="collection"/>
             <text variable="page" prefix="p.&#160;"/>
           </group>
-        </else>
-      </choose>
-      <choose>
-        <if type="webpage">
-          <group delimiter=". ">
-            <text macro="enligne"/>
-            <text macro="access"/>
-          </group>
-        </if>
-        <else>
-          <text macro="enligne" prefix=", "/>
         </else>
       </choose>
     </layout>
