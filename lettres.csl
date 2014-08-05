@@ -188,7 +188,7 @@
     <choose>
       <if variable="number-of-volumes">
         <group>
-          <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
+          <text variable="number-of-volumes" prefix=". " suffix="&#160;p."/>
           <text term="volume" form="short" suffix="."/>
         </group>
       </if>
