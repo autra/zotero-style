@@ -187,44 +187,48 @@
       <if variable="locator" match="none">
         <choose>
           <if variable="number-of-pages">
-            <text variable="number-of-pages" prefix=", " suffix="&#160;p."/>
+            <text variable="number-of-pages" suffix="&#160;p."/>
           </if>
         </choose>
       </if>
     </choose>
   </macro>
   <macro name="publisher-thesis">
-    <choose>
-      <if variable="publisher">
-        <text variable="publisher" suffix=", "/>
-      </if>
-      <else-if variable="publisher-place">
-        <text variable="publisher-place"/>
-      </else-if>
-    </choose>
-    <text macro="issued-long"/>
-    <text macro="publisher-number-of-pages"/>
-    <choose>
-      <if variable="number-of-volumes">
-        <group>
-          <text variable="number-of-volumes" prefix=". " suffix="&#160;p."/>
-          <text term="volume" form="short" suffix="."/>
-        </group>
-      </if>
-    </choose>
+    <group delimiter=", ">
+        <choose>
+          <if variable="publisher">
+            <text variable="publisher"/>
+          </if>
+          <else-if variable="publisher-place">
+            <text variable="publisher-place"/>
+          </else-if>
+        </choose>
+        <text macro="issued-long"/>
+        <text macro="publisher-number-of-pages"/>
+        <choose>
+          <if variable="number-of-volumes">
+            <group>
+              <text variable="number-of-volumes" suffix="&#160;"/>
+              <text term="volume" form="short"/>
+            </group>
+          </if>
+        </choose>
+    </group>
   </macro>
   <macro name="publisher-book">
-    <text macro="publisher"/>
-    <text macro="issued-long"/>
-    <text macro="publisher-number-of-pages"/>
-    <choose>
-      <if variable="number-of-volumes">
-        <group>
-          <text variable="number-of-volumes" prefix=". " suffix="&#160;"/>
-          <text term="volume" form="short" suffix="."/>
-        </group>
-      </if>
-    </choose>
+    <group delimiter=", ">
+      <text macro="publisher"/>
+      <text macro="issued-long"/>
+      <text macro="publisher-number-of-pages"/>
+      <choose>
+        <if variable="number-of-volumes">
+          <group>
+            <text variable="number-of-volumes"  suffix="&#160;"/>
+            <text term="volume" form="short"/>
+          </group>
+        </if>
+      </choose>
+    </group>
   </macro>
   <macro name="volume">
     <choose>
