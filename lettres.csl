@@ -172,7 +172,7 @@
   <macro name="publisher">
     <group delimiter=", ">
         <text variable="publisher-place"/>
-        <text variable="publisher" prefix="édition "/>
+        <text variable="publisher"/>
     </group>
   </macro>
   <macro name="page">
