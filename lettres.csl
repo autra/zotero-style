@@ -189,17 +189,6 @@
       </else-if>
     </choose>
   </macro>
-  <macro name="publisher-number-of-pages">
-    <choose>
-      <if variable="locator" match="none">
-        <choose>
-          <if variable="number-of-pages">
-            <text variable="number-of-pages" suffix="&#160;p."/>
-          </if>
-        </choose>
-      </if>
-    </choose>
-  </macro>
   <macro name="publisher-thesis">
     <group delimiter=", ">
         <choose>
