@@ -306,6 +306,7 @@
             <else>
               <group delimiter=", ">
                 <text macro="title"/>
+                <text variable="dimensions"/>
                 <text macro="container-contributors"/>
                 <text macro="enligne"/>
                 <text macro="translator" text-case="capitalize-first"/>
