@@ -303,18 +303,6 @@
                 <text macro="enligne" suffix=". "/>
               </group>
             </else-if>
-            <else-if type="chapter">
-              <group delimiter=", ">
-                <text macro="title"/>
-                <text macro="container-contributors"/>
-                <text macro="enligne"/>
-                <text macro="translator" text-case="capitalize-first"/>
-                <text variable="edition" text-case="capitalize-first"/>
-                <text macro="publisher-book"/>
-                <text macro="volume" text-case="capitalize-first"/>
-                <text macro="page"/>
-              </group>
-            </else-if>
             <else>
               <group delimiter=", ">
                 <text macro="title"/>
@@ -323,7 +311,14 @@
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
-                <text macro="volume-issue" text-case="capitalize-first"/>
+                <choose>
+                  <if type="chapter">
+                    <text macro="volume" text-case="capitalize-first"/>
+                  </if>
+                  <else>
+                    <text macro="volume-issue" text-case="capitalize-first"/>
+                  </else>
+                </choose>
                 <text macro="page"/>
               </group>
             </else>
