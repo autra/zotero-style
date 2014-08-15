@@ -177,9 +177,16 @@
   </macro>
   <macro name="page">
     <choose>
-      <if variable="locator" match="none">
-        <text variable="page" prefix="p.&#160;"/>
+      <if variable="locator">
+        <label variable="locator" form="short" prefix=", "/>
+        <text variable="locator" prefix="&#160;"/>
       </if>
+      <else-if variable="page">
+        <text variable="page" prefix="p.&#160;"/>
+      </else-if>
+      <else-if variable="number-of-pages">
+        <text variable="number-of-pages" suffix="&#160;p."/>
+      </else-if>
     </choose>
   </macro>
   <macro name="publisher-number-of-pages">
