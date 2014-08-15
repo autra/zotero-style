@@ -133,7 +133,7 @@
     <group delimiter=", ">
       <choose>
         <if type="chapter article article-magazine article-newspaper article-journal entry entry-dictionary entry-encyclopedia paper-conference">
-        <text variable="title" text-case="capitalize-first" quotes="true"/>
+          <text variable="title" text-case="capitalize-first" quotes="true"/>
           <choose>
             <if variable="title-short">
               <text variable="title-short" text-case="capitalize-first" font-style="italic" suffix="..."/>
@@ -150,8 +150,8 @@
             </if>
             <else>
               <text variable="title" text-case="capitalize-first" font-style="italic"/>
-              </else>
-            </choose>
+            </else>
+          </choose>
         </else>
       </choose>
     </group>
