@@ -177,8 +177,8 @@
   </macro>
   <macro name="page">
     <choose>
-      <if variable="locator">
-        <label variable="locator" form="short" prefix=", "/>
+      <if locator="page">
+        <label variable="locator" form="short"/>
         <text variable="locator" prefix="&#160;"/>
       </if>
       <else-if variable="page">
@@ -211,57 +211,59 @@
           </else-if>
         </choose>
         <text macro="issued-long"/>
-        <text macro="publisher-number-of-pages"/>
-        <choose>
-          <if variable="number-of-volumes">
-            <group>
-              <text variable="number-of-volumes" suffix="&#160;"/>
-              <text term="volume" form="short"/>
-            </group>
-          </if>
-        </choose>
     </group>
   </macro>
   <macro name="publisher-book">
     <group delimiter=", ">
       <text macro="publisher"/>
       <text macro="issued-long"/>
-      <text macro="publisher-number-of-pages"/>
-      <choose>
-        <if variable="number-of-volumes">
-          <group>
-            <text variable="number-of-volumes"  suffix="&#160;"/>
-            <text term="volume" form="short"/>
-          </group>
-        </if>
-      </choose>
     </group>
   </macro>
   <macro name="volume">
     <choose>
-      <if is-numeric="volume">
-        <text term="volume" form="short" suffix=".&#160;"/>
-        <text variable="volume"/>
+      <if variable="volume">
+        <choose>
+          <if is-numeric="volume">
+            <text term="volume" form="short" suffix=".&#160;"/>
+            <text variable="volume"/>
+          </if>
+          <else>
+            <text variable="volume"/>
+          </else>
+       </choose>
       </if>
-      <else>
-        <text variable="volume"/>
-      </else>
+      <else-if variable="number-of-volumes">
+        <group>
+          <text variable="number-of-volumes" suffix="&#160;"/>
+          <text term="volume" form="short"/>
+        </group>
+      </else-if>
     </choose>
   </macro>
   <macro name="volume-issue">
     <choose>
-      <if is-numeric="volume">
-        <text term="volume" form="short" suffix=".&#160;"/>
-        <text variable="volume"/>
+      <if variable="volume">
         <choose>
-          <if variable="issue" match="any">
-            <text variable="issue" prefix="&#160;/&#160;"/>
+          <if is-numeric="volume">
+            <text term="volume" form="short" suffix=".&#160;"/>
+            <text variable="volume"/>
+            <choose>
+              <if variable="issue">
+                <text variable="issue" prefix="&#160;/&#160;"/>
+              </if>
+            </choose>
           </if>
+          <else>
+            <text variable="volume"/>
+          </else>
         </choose>
       </if>
-      <else>
-        <text variable="volume"/>
-      </else>
+      <else-if variable="number-of-volumes">
+        <group>
+          <text variable="number-of-volumes" suffix="&#160;"/>
+          <text term="volume" form="short"/>
+        </group>
+      </else-if>
     </choose>
   </macro>
   <macro name="issue">
@@ -306,6 +308,7 @@
                 <text macro="title"/>
                 <text variable="genre"/>
                 <text macro="publisher-thesis"/>
+                <text macro="page"/>
               </group>
             </if>
             <else-if type="webpage">
@@ -318,11 +321,11 @@
               <group delimiter=", ">
                 <text macro="title"/>
                 <text macro="container-contributors"/>
-                <text macro="volume" text-case="capitalize-first"/>
                 <text macro="enligne"/>
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
+                <text macro="volume" text-case="capitalize-first"/>
                 <text macro="page"/>
               </group>
             </else-if>
@@ -330,19 +333,15 @@
               <group delimiter=", ">
                 <text macro="title"/>
                 <text macro="container-contributors"/>
-                <text macro="volume-issue" text-case="capitalize-first"/>
                 <text macro="enligne"/>
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
+                <text macro="volume-issue" text-case="capitalize-first"/>
                 <text macro="page"/>
               </group>
             </else>
           </choose>
-          <group>
-            <label variable="locator" form="short" prefix=", "/>
-            <text variable="locator" prefix="&#160;"/>
-          </group>
         </if>
         <else-if position="ibid-with-locator">
           <group>
@@ -386,6 +385,7 @@
             <text macro="title"/>
             <text variable="genre"/>
             <text macro="publisher-thesis"/>
+            <text macro="page"/>
           </group>
         </if>
         <else-if type="webpage">
@@ -398,24 +398,24 @@
           <group delimiter=", ">
             <text macro="title"/>
             <text macro="container-contributors"/>
-            <text macro="volume" text-case="capitalize-first"/>
             <text macro="enligne"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
             <text macro="publisher-book"/>
-            <text variable="page" prefix="p.&#160;"/>
+            <text macro="volume"/>
+            <text macro="page"/>
           </group>
         </else-if>
         <else>
           <group delimiter=", ">
             <text macro="title"/>
             <text macro="container-contributors"/>
-            <text macro="volume-issue" text-case="capitalize-first"/>
             <text macro="enligne"/>
             <text macro="translator" text-case="capitalize-first"/>
             <text variable="edition" text-case="capitalize-first"/>
             <text macro="publisher-book"/>
-            <text variable="page" prefix="p.&#160;"/>
+            <text macro="volume-issue"/>
+            <text macro="page"/>
           </group>
         </else>
       </choose>
