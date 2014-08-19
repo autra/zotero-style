@@ -351,7 +351,7 @@
       </choose>
     </layout>
   </citation>
-  <bibliography>
+  <bibliography subsequent-author-substitute="">
     <sort>
       <key macro="contributors-sort"/>
       <key variable="title"/>
@@ -360,47 +360,36 @@
       <key variable="volume"/>
     </sort>
     <layout suffix=".">
-      <text macro="contributors"/>
-      <choose>
-        <if type="thesis">
-          <group delimiter=", ">
-            <text macro="title"/>
-            <text variable="genre"/>
-            <text macro="publisher-thesis"/>
-            <text macro="page"/>
-          </group>
-        </if>
-        <else-if type="webpage">
-          <group delimiter=", ">
-            <text macro="title" suffix=","/>
-            <text macro="enligne"/>
-          </group>
-        </else-if>
-        <else-if type="chapter">
-          <group delimiter=", ">
-            <text macro="title"/>
-            <text macro="container-contributors"/>
-            <text macro="enligne"/>
-            <text macro="translator" text-case="capitalize-first"/>
-            <text variable="edition" text-case="capitalize-first"/>
-            <text macro="publisher-book"/>
-            <text macro="volume"/>
-            <text macro="page"/>
-          </group>
-        </else-if>
-        <else>
-          <group delimiter=", ">
-            <text macro="title"/>
-            <text macro="container-contributors"/>
-            <text macro="enligne"/>
-            <text macro="translator" text-case="capitalize-first"/>
-            <text variable="edition" text-case="capitalize-first"/>
-            <text macro="publisher-book"/>
-            <text macro="volume-issue"/>
-            <text macro="page"/>
-          </group>
-        </else>
-      </choose>
+      <group display="block">
+        <text macro="contributors"/>
+      </group>
+      <group delimiter=", " display="indent">
+        <choose>
+          <if type="thesis">
+              <text macro="title"/>
+              <text variable="genre"/>
+              <text macro="publisher-thesis"/>
+              <text macro="page"/>
+          </if>
+          <else-if type="webpage">
+              <text macro="title"/>
+              <text macro="enligne"/>
+          </else-if>
+          <else>
+              <text macro="title"/>
+              <text macro="container-contributors"/>
+              <text macro="enligne"/>
+              <text macro="translator" text-case="capitalize-first"/>
+              <text variable="edition" text-case="capitalize-first"/>
+              <text macro="publisher-book"/>
+              <choose>
+                <if type="chapter"><text macro="volume"/></if>
+                <else><text macro="volume-issue"/></else>
+              </choose>
+              <text macro="page"/>
+          </else>
+        </choose>
+      </group>
     </layout>
   </bibliography>
 </style>
