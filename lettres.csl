@@ -164,7 +164,7 @@
   </macro>
   <macro name="page">
     <choose>
-      <if locator="page" variable="locator" match="all">
+      <if variable="locator">
         <label variable="locator" form="short"/>
         <text variable="locator" prefix="&#160;"/>
       </if>
