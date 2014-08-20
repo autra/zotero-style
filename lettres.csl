@@ -12,7 +12,7 @@
     <category citation-format="note"/>
     <category field="humanities"/>
     <category field="literature"/>
-    <updated>2013-08-29T04:18:55+00:00</updated>
+    <updated>2014-08-20T22:15:01+02:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="fr">
@@ -106,16 +106,6 @@
           </else-if>
         </choose>
         <text variable="container-title" font-style="italic"/>
-        <choose>
-          <if variable="title" match="any"/>
-          <else>
-            <choose>
-              <if variable="URL DOI" match="any">
-                <text value="en ligne" prefix=" [" suffix="]" text-case="capitalize-first"/>
-              </if>
-            </choose>
-          </else>
-        </choose>
       </if>
     </choose>
   </macro>
