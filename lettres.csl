@@ -277,43 +277,39 @@
     <layout suffix="." delimiter=". ">
       <choose>
         <if position="first">
-          <text macro="contributors-notes" font-variant="normal" suffix=", "/>
-          <choose>
-            <if type="thesis">
-              <group delimiter=", ">
-                <text macro="title"/>
-                <text variable="genre"/>
-                <text macro="publisher-thesis"/>
-                <text macro="page"/>
-              </group>
-            </if>
-            <else-if type="webpage">
-              <group>
-                <text macro="title" suffix=", "/>
-                <text macro="enligne" suffix=". "/>
-              </group>
-            </else-if>
-            <else>
-              <group delimiter=", ">
-                <text macro="title"/>
-                <text variable="dimensions"/>
-                <text macro="container-contributors"/>
-                <text macro="enligne"/>
-                <text macro="translator" text-case="capitalize-first"/>
-                <text variable="edition" text-case="capitalize-first"/>
-                <text macro="publisher-book"/>
-                <choose>
-                  <if type="chapter">
-                    <text macro="volume" text-case="capitalize-first"/>
-                  </if>
-                  <else>
-                    <text macro="volume-issue" text-case="capitalize-first"/>
-                  </else>
-                </choose>
-                <text macro="page"/>
-              </group>
-            </else>
-          </choose>
+          <group delimiter=", ">
+          <text macro="contributors-notes" font-variant="normal"/>
+            <choose>
+              <if type="thesis">
+                  <text macro="title"/>
+                  <text variable="genre"/>
+                  <text macro="publisher-thesis"/>
+                  <text macro="page"/>
+              </if>
+              <else-if type="webpage">
+                  <text macro="title"/>
+                  <text macro="enligne"/>
+              </else-if>
+              <else>
+                  <text macro="title"/>
+                  <text variable="dimensions"/>
+                  <text macro="container-contributors"/>
+                  <text macro="enligne"/>
+                  <text macro="translator" text-case="capitalize-first"/>
+                  <text variable="edition" text-case="capitalize-first"/>
+                  <text macro="publisher-book"/>
+                  <choose>
+                    <if type="chapter">
+                      <text macro="volume" text-case="capitalize-first"/>
+                    </if>
+                    <else>
+                      <text macro="volume-issue" text-case="capitalize-first"/>
+                    </else>
+                  </choose>
+                  <text macro="page"/>
+              </else>
+            </choose>
+          </group>
         </if>
         <else-if position="ibid-with-locator">
           <group>
