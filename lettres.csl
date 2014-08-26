@@ -62,10 +62,26 @@
     </names>
   </macro>
   <macro name="contributors-notes">
-    <names variable="author">
-      <name delimiter=", " and="text" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="3" et-al-subsequent-min="4" et-al-subsequent-use-first="1"/>
-      <et-al font-style="italic"/>
-    </names>
+    <choose>
+      <if variable="author">
+        <names variable="author">
+          <name delimiter=", " and="text" delimiter-precedes-last="never" et-al-min="4" et-al-use-first="3" et-al-subsequent-min="4" et-al-subsequent-use-first="1"/>
+          <et-al font-style="italic"/>
+        </names>
+      </if>
+      <else-if variable="editor">
+        <choose>
+          <if type="chapter article article-magazine article-newspaper article-journal entry entry-dictionary entry-encyclopedia paper-conference" match="none">
+            <names variable="editor" suffix=", ">
+              <name form="long" delimiter=", " delimiter-precedes-last="always">
+                <name-part name="family" text-case="capitalize-first"/>
+              </name>
+              <label form="short" prefix=" (" suffix=".)"/>
+            </names>
+          </if>
+        </choose>
+      </else-if>
+    </choose>
   </macro>
   <macro name="contributors-sort">
     <names variable="author">
@@ -279,36 +295,36 @@
         <if position="first">
           <group delimiter=", ">
           <text macro="contributors-notes" font-variant="normal"/>
-            <choose>
-              <if type="thesis">
-                  <text macro="title"/>
-                  <text variable="genre"/>
-                  <text macro="publisher-thesis"/>
-                  <text macro="page"/>
-              </if>
-              <else-if type="webpage">
-                  <text macro="title"/>
-                  <text macro="enligne"/>
-              </else-if>
-              <else>
-                  <text macro="title"/>
-                  <text variable="dimensions"/>
-                  <text macro="container-contributors"/>
-                  <text macro="enligne"/>
-                  <text macro="translator" text-case="capitalize-first"/>
-                  <text variable="edition" text-case="capitalize-first"/>
-                  <text macro="publisher-book"/>
-                  <choose>
-                    <if type="chapter">
-                      <text macro="volume" text-case="capitalize-first"/>
-                    </if>
-                    <else>
-                      <text macro="volume-issue" text-case="capitalize-first"/>
-                    </else>
-                  </choose>
-                  <text macro="page"/>
-              </else>
-            </choose>
+          <choose>
+            <if type="thesis">
+                <text macro="title"/>
+                <text variable="genre"/>
+                <text macro="publisher-thesis"/>
+                <text macro="page"/>
+            </if>
+            <else-if type="webpage">
+                <text macro="title"/>
+                <text macro="enligne"/>
+            </else-if>
+            <else>
+                <text macro="title"/>
+                <text variable="dimensions"/>
+                <text macro="container-contributors"/>
+                <text macro="enligne"/>
+                <text macro="translator" text-case="capitalize-first"/>
+                <text variable="edition" text-case="capitalize-first"/>
+                <text macro="publisher-book"/>
+                <choose>
+                  <if type="chapter">
+                    <text macro="volume" text-case="capitalize-first"/>
+                  </if>
+                  <else>
+                    <text macro="volume-issue" text-case="capitalize-first"/>
+                  </else>
+                </choose>
+                <text macro="page"/>
+            </else>
+          </choose>
           </group>
         </if>
         <else-if position="ibid-with-locator">
