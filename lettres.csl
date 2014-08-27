@@ -72,7 +72,7 @@
       <else-if variable="editor">
         <choose>
           <if type="chapter article article-magazine article-newspaper article-journal entry entry-dictionary entry-encyclopedia paper-conference" match="none">
-            <names variable="editor" suffix=", ">
+            <names variable="editor">
               <name form="long" delimiter=", " delimiter-precedes-last="always">
                 <name-part name="family" text-case="capitalize-first"/>
               </name>
