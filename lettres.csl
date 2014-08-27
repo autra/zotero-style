@@ -130,6 +130,9 @@
       <if type="book thesis graphic" match="any">
         <text variable="title" text-case="capitalize-first" font-style="italic"/>
       </if>
+      <else-if type="personal_communication">
+        <text variable="title" text-case="capitalize-first"/>
+      </else-if>
       <else>
         <text variable="title" text-case="capitalize-first" quotes="true"/>
       </else>
@@ -314,6 +317,12 @@
                 <text macro="translator" text-case="capitalize-first"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <text macro="publisher-book"/>
+                <choose>
+                  <if type="personal_communication">
+                    <text variable="archive"/>
+                    <text variable="archive_location"/>
+                  </if>
+                </choose>
                 <choose>
                   <if type="chapter">
                     <text macro="volume" text-case="capitalize-first"/>
