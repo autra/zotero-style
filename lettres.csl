@@ -208,12 +208,6 @@
         <text macro="issued-long"/>
     </group>
   </macro>
-  <macro name="publisher-book">
-    <group delimiter=", ">
-      <text macro="publisher"/>
-      <text macro="issued-long"/>
-    </group>
-  </macro>
   <macro name="volume">
     <choose>
       <if variable="volume">
@@ -315,8 +309,9 @@
                 <text macro="container-contributors"/>
                 <text macro="enligne"/>
                 <text macro="translator" text-case="capitalize-first"/>
+                <text macro="publisher"/>
+                <text macro="issued-long"/>
                 <text variable="edition" text-case="capitalize-first"/>
-                <text macro="publisher-book"/>
                 <choose>
                   <if type="personal_communication">
                     <text variable="archive"/>
@@ -387,8 +382,9 @@
                   <text macro="container-contributors"/>
                   <text macro="enligne"/>
                   <text macro="translator" text-case="capitalize-first"/>
+                  <text macro="publisher"/>
+                  <text macro="issued-long"/>
                   <text variable="edition" text-case="capitalize-first"/>
-                  <text macro="publisher-book"/>
                   <text macro="volume-issue"/>
                   <text macro="page"/>
               </else>
