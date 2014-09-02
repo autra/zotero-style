@@ -170,7 +170,6 @@
       <choose>
         <if variable="URL" match="any">
           <text variable="URL" prefix="en ligne : &lt;" suffix="&gt;"/>
-          <text macro="access"/>
         </if>
       </choose>
     </group>
@@ -302,6 +301,8 @@
             <else-if type="webpage">
                 <text macro="title"/>
                 <text macro="enligne"/>
+                <text macro="issued-long"/>
+                <text macro="access"/>
             </else-if>
             <else>
                 <text macro="title"/>
@@ -311,6 +312,7 @@
                 <text macro="translator" text-case="capitalize-first"/>
                 <text macro="publisher"/>
                 <text macro="issued-long"/>
+                <text macro="access"/>
                 <text variable="edition" text-case="capitalize-first"/>
                 <choose>
                   <if type="personal_communication">
