@@ -371,36 +371,33 @@
       <key variable="volume"/>
     </sort>
     <layout suffix=".">
-      <group display="block">
-        <text macro="contributors"/>
-      </group>
-      <group delimiter=", " display="indent">
-        <choose>
-          <if type="thesis">
-              <text macro="title"/>
-              <text variable="genre"/>
-              <text macro="publisher-thesis"/>
-              <text macro="page"/>
-          </if>
-          <else-if type="webpage">
-              <text macro="title"/>
-              <text macro="enligne"/>
-          </else-if>
-          <else>
-              <text macro="title"/>
-              <text macro="container-contributors"/>
-              <text macro="enligne"/>
-              <text macro="translator" text-case="capitalize-first"/>
-              <text variable="edition" text-case="capitalize-first"/>
-              <text macro="publisher-book"/>
-              <choose>
-                <if type="chapter"><text macro="volume"/></if>
-                <else><text macro="volume-issue"/></else>
-              </choose>
-              <text macro="page"/>
-          </else>
-        </choose>
-      </group>
+      <choose>
+        <if type="webpage chapter article article-magazine article-newspaper article-journal entry entry-dictionary entry-encyclopedia" match="none">
+          <group display="block">
+            <text macro="contributors"/>
+          </group>
+          <group delimiter=", " display="indent">
+            <choose>
+              <if type="thesis">
+                  <text macro="title"/>
+                  <text variable="genre"/>
+                  <text macro="publisher-thesis"/>
+                  <text macro="page"/>
+              </if>
+              <else>
+                  <text macro="title"/>
+                  <text macro="container-contributors"/>
+                  <text macro="enligne"/>
+                  <text macro="translator" text-case="capitalize-first"/>
+                  <text variable="edition" text-case="capitalize-first"/>
+                  <text macro="publisher-book"/>
+                  <text macro="volume-issue"/>
+                  <text macro="page"/>
+              </else>
+            </choose>
+          </group>
+        </if>
+      </choose>
     </layout>
   </bibliography>
 </style>
