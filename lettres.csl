@@ -41,25 +41,24 @@
     </date>
   </macro>
   <macro name="contributors">
-    <names variable="author">
-      <name name-as-sort-order="all" form="long" delimiter=", " and="text" delimiter-precedes-last="never" sort-separator=", ">
-        <name-part name="family" text-case="uppercase"/>
-      </name>
-      <label form="short" prefix=", (" suffix=".)"/>
-      <substitute>
-        <choose>
-          <if type="webpage">
-            <text macro="title"/>
-          </if>
-          <else>
-            <text macro="title" suffix=", "/>
-            <names variable="translator">
-              <name/>
-            </names>
-          </else>
-        </choose>
-      </substitute>
-    </names>
+    <choose>
+      <if variable="author">
+        <names variable="author">
+          <name name-as-sort-order="all" form="long" delimiter=", " and="text" delimiter-precedes-last="never" sort-separator=", ">
+            <name-part name="family" text-case="uppercase"/>
+          </name>
+          <label form="short" prefix=", (" suffix=".)"/>
+        </names>
+      </if>
+      <else>
+        <names variable="editor">
+          <name form="long" delimiter=", " delimiter-precedes-last="always">
+            <name-part name="family" text-case="capitalize-first"/>
+          </name>
+          <label form="short" prefix=" (" suffix=".)"/>
+        </names>
+      </else>
+    </choose>
   </macro>
   <macro name="contributors-notes">
     <choose>
