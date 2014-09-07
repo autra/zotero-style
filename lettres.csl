@@ -12,7 +12,7 @@
     <category citation-format="note"/>
     <category field="humanities"/>
     <category field="literature"/>
-    <updated>2014-09-07T15:33:01+02:00</updated>
+    <updated>2014-09-07T16:02:01+02:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="fr">
@@ -81,17 +81,6 @@
         </choose>
       </else-if>
     </choose>
-  </macro>
-  <macro name="contributors-sort">
-    <names variable="author">
-      <name name-as-sort-order="all" form="long" delimiter=", " delimiter-precedes-last="always" sort-separator=" "/>
-      <substitute>
-        <text macro="title"/>
-        <names variable="editor"/>
-        <names variable="translator"/>
-        <text macro="publication-title"/>
-      </substitute>
-    </names>
   </macro>
   <macro name="translator">
     <names variable="translator">
@@ -360,11 +349,11 @@
   </citation>
   <bibliography>
     <sort>
-      <key macro="contributors-sort"/>
-      <key variable="title"/>
-      <key variable="issued"/>
-      <key variable="issue"/>
-      <key variable="volume"/>
+      <key macro="contributors"/>
+      <key macro="title"/>
+      <key macro="container-contributors"/>
+      <key macro="publisher"/>
+      <key macro="issued"/>
     </sort>
     <layout suffix=".">
       <choose>
