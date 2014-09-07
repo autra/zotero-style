@@ -385,6 +385,7 @@
                   <text macro="translator" text-case="capitalize-first"/>
                   <text macro="publisher"/>
                   <text macro="issued-long"/>
+                  <text macro="access"/>
                   <text variable="edition" text-case="capitalize-first"/>
                   <text macro="volume-issue"/>
                   <text macro="page"/>
