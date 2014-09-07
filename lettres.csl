@@ -52,8 +52,8 @@
       </if>
       <else>
         <names variable="editor">
-          <name form="long" delimiter=", " delimiter-precedes-last="always">
-            <name-part name="family" text-case="capitalize-first"/>
+          <name name-as-sort-order="all" form="long" delimiter=", " and="text" delimiter-precedes-last="never">
+            <name-part name="family" text-case="uppercase"/>
           </name>
           <label form="short" prefix=" (" suffix=".)"/>
         </names>
