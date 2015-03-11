@@ -348,6 +348,8 @@
               <text macro="translator" text-case="capitalize-first"/>
               <text macro="publisher"/>
               <text macro="issued-long"/>
+              <text variable="medium"/>
+              <text variable="dimensions"/>
               <text variable="edition" text-case="capitalize-first"/>
               <text variable="archive"/>
               <text variable="archive_location"/>
