@@ -334,33 +334,29 @@
       <key macro="issued"/>
     </sort>
     <layout suffix=".">
-      <choose>
-        <if type="article-newspaper graphic" match="none">
-          <group delimiter=", ">
-            <text macro="contributors"/>
-            <choose>
-              <if type="thesis">
-                  <text macro="title"/>
-                  <text variable="genre"/>
-                  <text macro="publisher-thesis"/>
-                  <text macro="page"/>
-              </if>
-              <else>
-                  <text macro="title"/>
-                  <text macro="container-contributors"/>
-                  <text macro="enligne"/>
-                  <text macro="translator" text-case="capitalize-first"/>
-                  <text macro="publisher"/>
-                  <text macro="issued-long"/>
-                  <text macro="access"/>
-                  <text variable="edition" text-case="capitalize-first"/>
-                  <text macro="volume-issue"/>
-                  <text macro="page"/>
-              </else>
-            </choose>
-          </group>
-        </if>
-      </choose>
+      <group delimiter=", ">
+        <text macro="contributors"/>
+        <choose>
+          <if type="thesis">
+              <text macro="title"/>
+              <text variable="genre"/>
+              <text macro="publisher-thesis"/>
+              <text macro="page"/>
+          </if>
+          <else>
+              <text macro="title"/>
+              <text macro="container-contributors"/>
+              <text macro="enligne"/>
+              <text macro="translator" text-case="capitalize-first"/>
+              <text macro="publisher"/>
+              <text macro="issued-long"/>
+              <text macro="access"/>
+              <text variable="edition" text-case="capitalize-first"/>
+              <text macro="volume-issue"/>
+              <text macro="page"/>
+          </else>
+        </choose>
+      </group>
     </layout>
   </bibliography>
 </style>
