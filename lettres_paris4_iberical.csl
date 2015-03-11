@@ -137,7 +137,7 @@
     <group delimiter=", ">
       <choose>
         <if variable="URL" match="any">
-          <text variable="URL" prefix="en ligne : &lt;" suffix="&gt;"/>
+          <text variable="URL" prefix="[en ligne], &lt;" suffix="&gt;"/>
         </if>
       </choose>
     </group>
@@ -234,7 +234,7 @@
     </choose>
   </macro>
   <macro name="access">
-    <group>
+    <group prefix="[" suffix="]">
       <text term="accessed" suffix=" "/>
       <date variable="accessed">
         <date-part name="day" suffix=" "/>
