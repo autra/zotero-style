@@ -30,7 +30,7 @@
       <term name="accessed">consulté le</term>
       <term name="at">disponible sur&#160;:</term>
       <term name="et-al"> [et al.]</term>
-      <term name="ibid">ibidem</term>
+      <term name="ibid">ibid.</term>
       <!--this is to fix the "little square" problem in word-->
       <term name="page-range-delimiter">-</term>
     </terms>
