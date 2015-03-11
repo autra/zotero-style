@@ -31,6 +31,8 @@
       <term name="at">disponible sur&#160;:</term>
       <term name="et-al"> [et al.]</term>
       <term name="ibid">ibidem</term>
+      <!--this is to fix the "little square" problem in word-->
+      <term name="page-range-delimiter">-</term>
     </terms>
   </locale>
   <macro name="issued-long">
