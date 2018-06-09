@@ -17,7 +17,7 @@
   </info>
   <macro name="editor">
     <names variable="editor" delimiter=", ">
-      <name and="text" delimiter=", "/>
+      <name form="short" and="text" delimiter=", "/>
       <label form="short" prefix=" (" suffix=")"/>
     </names>
   </macro>
