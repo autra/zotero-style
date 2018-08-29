@@ -32,6 +32,9 @@
   <macro name="anon">
     <text term="anonymous" form="short" text-case="capitalize-first" />
   </macro>
+  <macro name="anon-cap">
+    <text term="anonymous" form="short" text-case="uppercase" />
+  </macro>
   <macro name="author">
     <names variable="author">
       <name name-as-sort-order="all" and="text" sort-separator=", "  delimiter-precedes-last="never" delimiter=", " form="long">
@@ -40,7 +43,7 @@
       <label form="short" prefix=" "/>
       <substitute>
         <text macro="editor"/>
-        <text macro="anon"/>
+        <text macro="anon-cap" />
       </substitute>
     </names>
   </macro>
