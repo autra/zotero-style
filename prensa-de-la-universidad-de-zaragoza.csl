@@ -184,8 +184,10 @@
     </sort>
     <layout>
       <group delimiter=", " suffix=".">
-        <text macro="author"/>
-        <text macro="year-date" prefix=" (" suffix=")"/>
+        <group>
+          <text macro="author"/>
+          <text macro="year-date" prefix=" (" suffix=")"/>
+        </group>
         <choose>
           <if type="thesis">
             <text macro="title" font-style="italic"/>
