@@ -206,7 +206,7 @@
               <text variable="container-title"/>
           </else-if>
           <else-if type="article-journal article-newspaper broadcast personal_communication thesis" match="any">
-              <text macro="title" prefix=" "/>
+            <text macro="title" prefix="«" suffix="»"/>
               <text macro="editor" prefix=" "/>
             <choose>
               <if variable="author" match="any">
@@ -232,7 +232,7 @@
               <text macro="publisher"/>
           </else-if>
           <else-if type="chapter paper-conference" match="any">
-            <text macro="title" prefix=" " suffix=". "/>
+            <text macro="title" prefix="«" suffix="»"/>
             <group delimiter=" ">
               <text term="in" text-case="capitalize-first" suffix=":"/>
               <text macro="editor" suffix=". "/>
