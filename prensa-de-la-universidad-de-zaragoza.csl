@@ -243,17 +243,19 @@
           </else-if>
           <else-if type="chapter paper-conference" match="any">
             <text macro="title" prefix="«" suffix="»"/>
-            <group delimiter=" ">
-              <text term="in" />
-              <text macro="editor-in" suffix=". "/>
-              <text variable="container-title" font-style="italic" suffix="."/>
-              <text variable="collection-title" suffix="."/>
-              <text macro="edition" prefix=" " suffix="."/>
-              <text macro="online" suffix="."/>
-              <text macro="issued"/>
-              <text macro="publisher" suffix="."/>
-              <label variable="page" form="short"/>
-              <text macro="pages" suffix="."/>
+            <group>
+              <text term="in" suffix=" " />
+              <group delimiter=", ">
+                <text macro="editor-in" />
+                <text variable="container-title" font-style="italic" />
+                <text variable="collection-title" />
+                <text macro="edition" prefix=" " />
+                <text macro="online" />
+                <text macro="issued"/>
+                <text macro="publisher"/>
+                <label variable="page" form="short"/>
+                <text macro="pages" />
+              </group>
             </group>
           </else-if>
           <else>
