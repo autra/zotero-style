@@ -61,9 +61,9 @@
           <group prefix=" [" suffix="]">
             <text term="accessed" text-case="capitalize-first" suffix=": "/>
             <date variable="accessed">
-              <date-part name="day" suffix=" "/>
-              <date-part name="month" suffix=" "/>
-              <date-part name="year"/>
+              <date-part name="day" suffix=" " range-delimiter="-"/>
+              <date-part name="month" suffix=" " range-delimiter="-"/>
+              <date-part name="year" range-delimiter="-"/>
             </date>
           </group>
         </group>
@@ -94,12 +94,12 @@
       <choose>
         <if variable="issued">
           <date variable="issued">
-            <date-part name="year"/>
+            <date-part name="year" range-delimiter="-"/>
           </date>
           <choose>
             <if variable="original-date">
               <date variable="original-date" prefix="[" suffix="]">
-                <date-part name="year"/>
+                <date-part name="year" range-delimiter="-"/>
               </date>
             </if>
           </choose>
@@ -139,15 +139,15 @@
     <choose>
       <if type="article-newspaper paper-conference broadcast" match="any">
         <date variable="issued">
-          <date-part name="day" suffix=" "/>
-          <date-part name="month"/>
+          <date-part name="day" suffix=" " range-delimiter="-"/>
+          <date-part name="month" range-delimiter="-"/>
         </date>
       </if>
     </choose>
     <choose>
       <if type="paper-conference" match="any">
         <date variable="issued">
-          <date-part name="year" prefix=" "/>
+          <date-part name="year" prefix=" " range-delimiter="-"/>
         </date>
       </if>
     </choose>
@@ -190,9 +190,9 @@
           </group>
           <group prefix=" " delimiter=". " suffix=".">
             <date variable="issued">
-              <date-part name="day" suffix=" "/>
-              <date-part name="month" suffix=" "/>
-              <date-part name="year"/>
+              <date-part name="day" suffix=" " range-delimiter="-"/>
+              <date-part name="month" suffix=" " range-delimiter="-"/>
+              <date-part name="year" range-delimiter="-"/>
             </date>
             <text variable="container-title"/>
           </group>
