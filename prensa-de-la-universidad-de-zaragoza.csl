@@ -253,8 +253,10 @@
                 <text macro="online" />
                 <text macro="issued"/>
                 <text macro="publisher"/>
-                <label variable="page" form="short"/>
-                <text macro="pages" />
+                <group delimiter=" ">
+                  <label variable="page" form="short"/>
+                  <text macro="pages" />
+                </group>
               </group>
             </group>
           </else-if>
@@ -271,7 +273,7 @@
                 <text variable="issue" prefix=" (" suffix=")"/>
                 <text macro="issued"/>
               </group>
-              <group>
+              <group delimiter=" ">
                 <label variable="page" form="short"/>
                 <text macro="pages"/>
               </group>
