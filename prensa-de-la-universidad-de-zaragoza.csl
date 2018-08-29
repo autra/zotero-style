@@ -23,6 +23,14 @@
       <label form="short" prefix=" (" suffix=")"/>
     </names>
   </macro>
+  <macro name="editor-in">
+    <names variable="editor" delimiter=", ">
+      <name and="text" sort-separator=", "  delimiter-precedes-last="never" delimiter=", " form="long">
+        <name-part name="family" text-case="capitalize-first"/>
+      </name>
+      <label form="short" prefix=" (" suffix=")"/>
+    </names>
+  </macro>
   <macro name="editor-short">
     <names variable="editor" delimiter=", ">
       <name form="short" and="text" delimiter=", "/>
@@ -237,7 +245,7 @@
             <text macro="title" prefix="«" suffix="»"/>
             <group delimiter=" ">
               <text term="in" />
-              <text macro="editor" suffix=". "/>
+              <text macro="editor-in" suffix=". "/>
               <text variable="container-title" font-style="italic" suffix="."/>
               <text variable="collection-title" suffix="."/>
               <text macro="edition" prefix=" " suffix="."/>
