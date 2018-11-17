@@ -21,6 +21,7 @@
             and="text"
             sort-separator=", "
             delimiter-precedes-last="after-inverted-name"
+            delimiter-precedes-et-al="always"
             delimiter=", "
             form="long">
         <name-part name="family" font-variant="small-caps" text-case="capitalize-first"/>
@@ -54,6 +55,7 @@
             and="text"
             sort-separator=", "
             delimiter-precedes-last="after-inverted-name"
+            delimiter-precedes-et-al="always"
             delimiter=", "
             form="long" >
         <name-part name="family"  font-variant="small-caps"  text-case="capitalize-first"/>
