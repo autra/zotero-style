@@ -242,9 +242,21 @@
             <text macro="issued"/>
             <text macro="pages"/>
           </else-if>
-          <else-if type="book graphic" match="any">
+          <else-if type="book" match="any">
             <text variable="note"/>
             <text macro="title"/>
+            <text macro="edition"/>
+            <text macro="editor"/>
+            <text macro="online"/>
+            <text macro="publisher"/>
+          </else-if>
+          <else-if type="graphic" match="any">
+            <text variable="note"/>
+            <text macro="title"/>
+            <text variable="medium" />
+            <text variable="dimensions" />
+            <text variable="archive" />
+            <text variable="call-number" />
             <text macro="edition"/>
             <text macro="editor"/>
             <text macro="online"/>
