@@ -217,11 +217,6 @@
           <else-if type="webpage">
             <text macro="title"/>
             <text macro="edition"/>
-            <date variable="issued">
-              <date-part name="day" suffix=" " range-delimiter="-"/>
-              <date-part name="month" suffix=" " range-delimiter="-"/>
-              <date-part name="year" range-delimiter="-"/>
-            </date>
             <text variable="container-title"/>
           </else-if>
           <else-if type="article-journal article-newspaper broadcast personal_communication thesis" match="any">
