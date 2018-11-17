@@ -280,6 +280,27 @@
               </group>
             </group>
           </else-if>
+          <else-if type="song" match="any">
+            <group delimiter=" ">
+              <text macro="title"/>
+              <text macro="editor"/>
+            </group>
+            <text variable="container-title" font-style="italic" prefix=" " suffix="."/>
+            <text variable="medium" />
+            <text macro="publisher" />
+            <text macro="online" prefix=" " suffix=". "/>
+            <group delimiter=" ">
+              <group>
+                <text variable="volume"/>
+                <text variable="issue" prefix=" (" suffix=")"/>
+                <text macro="issued"/>
+              </group>
+              <group delimiter=" ">
+                <label variable="page" form="short"/>
+                <text macro="pages"/>
+              </group>
+            </group>
+          </else-if>
           <else>
             <group delimiter=" ">
               <text macro="title"/>
