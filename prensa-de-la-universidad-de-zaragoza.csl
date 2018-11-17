@@ -246,10 +246,6 @@
           <else-if type="book graphic" match="any">
             <text variable="note"/>
             <text macro="title"/>
-            <group delimiter=" ">
-              <text variable="collection-title"/>
-              <text variable="collection-number"/>
-            </group>
             <text macro="edition"/>
             <text macro="editor"/>
             <text macro="online"/>
@@ -262,7 +258,6 @@
               <group delimiter=", ">
                 <text macro="editor-in" />
                 <text variable="container-title" font-style="italic" />
-                <text variable="collection-title" />
                 <text macro="edition" prefix=" " />
                 <text macro="online" />
                 <text macro="issued"/>
