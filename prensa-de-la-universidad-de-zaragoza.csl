@@ -199,7 +199,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography hanging-indent="true" et-al-min="5" et-al-use-first="4">
+  <bibliography hanging-indent="true" et-al-min="4" et-al-use-first="1">
     <sort>
       <key macro="author"/>
       <key macro="year-date"/>
