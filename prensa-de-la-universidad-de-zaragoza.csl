@@ -26,6 +26,7 @@
             form="long">
         <name-part name="family" font-variant="small-caps" text-case="capitalize-first"/>
       </name>
+      <et-al font-style="italic" />
       <label form="short" prefix=" (" suffix=")"/>
     </names>
   </macro>
@@ -60,6 +61,7 @@
             form="long" >
         <name-part name="family"  font-variant="small-caps"  text-case="capitalize-first"/>
       </name>
+      <et-al font-style="italic" />
       <label form="short" prefix=" "/>
       <substitute>
         <text macro="editor"/>
