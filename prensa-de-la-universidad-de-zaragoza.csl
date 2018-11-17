@@ -214,7 +214,6 @@
           <if type="thesis">
             <text macro="title" font-style="italic"/>
             <text macro="edition"/>
-            <text variable="genre"/>
             <text macro="online"/>
             <text macro="publisher"/>
           </if>
