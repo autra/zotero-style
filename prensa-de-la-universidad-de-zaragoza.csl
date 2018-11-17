@@ -172,19 +172,34 @@
   </macro>
   <macro name="issued">
     <choose>
-      <if type="article-newspaper paper-conference broadcast" match="any">
-        <date variable="issued">
-          <date-part name="day" suffix=" " range-delimiter="-"/>
-          <date-part name="month" range-delimiter="-"/>
+      <if type="article-newspaper" match="any">
+        <date variable="issued" delimiter="-">
+          <date-part name="year" range-delimiter="-"/>
+          <date-part name="month" format="numeric-leading-zeros" range-delimiter="-"/>
+          <date-part name="day" range-delimiter="-"/>
         </date>
       </if>
-    </choose>
-    <choose>
-      <if type="paper-conference" match="any">
-        <date variable="issued">
-          <date-part name="year" prefix=" " range-delimiter="-"/>
-        </date>
-      </if>
+      <else>
+        <group delimiter=" ">
+          <choose>
+            <if variable="issued">
+              <date variable="issued">
+                <date-part name="year" range-delimiter="-"/>
+              </date>
+              <choose>
+                <if variable="original-date">
+                  <date variable="original-date" prefix="[" suffix="]">
+                    <date-part name="year" range-delimiter="-"/>
+                  </date>
+                </if>
+              </choose>
+            </if>
+            <else>
+              <text term="no date" form="short"/>
+            </else>
+          </choose>
+        </group>
+      </else>
     </choose>
   </macro>
   <citation et-al-min="4" et-al-use-first="3" disambiguate-add-year-suffix="true" collapse="year">
@@ -208,7 +223,7 @@
       <group delimiter=", " suffix=".">
         <group>
           <text macro="author"/>
-          <text macro="year-date" prefix=" (" suffix=")"/>
+          <text macro="issued"  prefix=" (" suffix=")"/>
         </group>
         <choose>
           <if type="thesis">
@@ -235,7 +250,6 @@
             <text macro="online" />
             <text variable="volume"/>
             <text variable="issue" prefix=" (" suffix=")"/>
-            <text macro="issued"/>
             <text macro="pages"/>
           </else-if>
           <else-if type="book" match="any">
@@ -267,7 +281,6 @@
                 <text variable="container-title" font-style="italic" />
                 <text macro="edition" prefix=" " />
                 <text macro="online" />
-                <text macro="issued"/>
                 <text macro="publisher"/>
                 <group delimiter=" ">
                   <label variable="page" form="short"/>
@@ -289,7 +302,6 @@
               <group>
                 <text variable="volume"/>
                 <text variable="issue" prefix=" (" suffix=")"/>
-                <text macro="issued"/>
               </group>
               <group delimiter=" ">
                 <label variable="page" form="short"/>
@@ -308,7 +320,6 @@
               <group>
                 <text variable="volume"/>
                 <text variable="issue" prefix=" (" suffix=")"/>
-                <text macro="issued"/>
               </group>
               <group delimiter=" ">
                 <label variable="page" form="short"/>
