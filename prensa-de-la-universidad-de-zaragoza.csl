@@ -82,25 +82,15 @@
   </macro>
   <macro name="access">
     <choose>
-      <if variable="URL DOI" match="any">
-        <group>
-          <text value="Available from: "/>
-          <choose>
-            <if variable="DOI">
-              <text variable="DOI" prefix="doi:"/>
-            </if>
-            <else>
-              <text variable="URL"/>
-            </else>
-          </choose>
-          <group prefix=" [" suffix="]">
-            <text term="accessed" text-case="capitalize-first" suffix=": "/>
-            <date variable="accessed">
-              <date-part name="day" suffix=" " range-delimiter="-"/>
-              <date-part name="month" suffix=" " range-delimiter="-"/>
-              <date-part name="year" range-delimiter="-"/>
-            </date>
-          </group>
+      <if variable="URL" match="any">
+        <text variable="URL" prefix="&lt;" suffix="&gt;" />
+        <group prefix=" [" suffix="]">
+          <text term="accessed" text-case="capitalize-first" suffix=": "/>
+          <date variable="accessed">
+            <date-part name="day" suffix=" " range-delimiter="-"/>
+            <date-part name="month" suffix=" " range-delimiter="-"/>
+            <date-part name="year" range-delimiter="-"/>
+          </date>
         </group>
       </if>
     </choose>
@@ -163,13 +153,6 @@
       <text variable="page"/>
     </group>
   </macro>
-  <macro name="online">
-    <choose>
-      <if variable="DOI URL" match="any">
-        <text value="[Online]"/>
-      </if>
-    </choose>
-  </macro>
   <macro name="issued">
     <choose>
       <if type="article-newspaper" match="any">
@@ -229,13 +212,11 @@
           <if type="thesis">
             <text macro="title" font-style="italic"/>
             <text macro="edition"/>
-            <text macro="online"/>
             <text macro="publisher"/>
           </if>
           <else-if type="webpage">
             <text macro="title"/>
             <text macro="edition"/>
-            <text macro="online"/>
             <date variable="issued">
               <date-part name="day" suffix=" " range-delimiter="-"/>
               <date-part name="month" suffix=" " range-delimiter="-"/>
@@ -247,7 +228,6 @@
             <text macro="title" prefix="«" suffix="»"/>
             <text macro="editor" prefix=" "/>
             <text variable="container-title" font-style="italic" prefix=" " />
-            <text macro="online" />
             <text variable="volume"/>
             <text variable="issue" prefix=" (" suffix=")"/>
             <text macro="pages"/>
@@ -257,7 +237,6 @@
             <text macro="title"/>
             <text macro="edition"/>
             <text macro="editor"/>
-            <text macro="online"/>
             <text macro="publisher"/>
           </else-if>
           <else-if type="graphic" match="any">
@@ -269,7 +248,6 @@
             <text variable="call-number" />
             <text macro="edition"/>
             <text macro="editor"/>
-            <text macro="online"/>
             <text macro="publisher"/>
           </else-if>
           <else-if type="chapter paper-conference" match="any">
@@ -280,7 +258,6 @@
                 <text macro="editor-in" />
                 <text variable="container-title" font-style="italic" />
                 <text macro="edition" prefix=" " />
-                <text macro="online" />
                 <text macro="publisher"/>
                 <group delimiter=" ">
                   <label variable="page" form="short"/>
@@ -297,7 +274,6 @@
             <text variable="container-title" font-style="italic" prefix=" " suffix="."/>
             <text variable="medium" />
             <text macro="publisher" />
-            <text macro="online" prefix=" " suffix=". "/>
             <group delimiter=" ">
               <group>
                 <text variable="volume"/>
@@ -315,7 +291,6 @@
               <text macro="editor"/>
             </group>
             <text variable="container-title" font-style="italic" prefix=" " suffix="."/>
-            <text macro="online" prefix=" " suffix=". "/>
             <group delimiter=" ">
               <group>
                 <text variable="volume"/>
