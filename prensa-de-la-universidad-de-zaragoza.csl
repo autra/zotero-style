@@ -231,11 +231,7 @@
           <else-if type="article-journal article-newspaper broadcast personal_communication thesis" match="any">
             <text macro="title" prefix="«" suffix="»"/>
             <text macro="editor" prefix=" "/>
-            <choose>
-              <if variable="author" match="any">
-                <text variable="container-title" font-style="italic" prefix=" " />
-              </if>
-            </choose>
+            <text variable="container-title" font-style="italic" prefix=" " />
             <text macro="online" />
             <text variable="volume"/>
             <text variable="issue" prefix=" (" suffix=")"/>
