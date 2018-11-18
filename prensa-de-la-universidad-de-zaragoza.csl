@@ -114,27 +114,6 @@
       <text variable="publisher"/>
     </group>
   </macro>
-  <macro name="year-date">
-    <group delimiter=" ">
-      <choose>
-        <if variable="issued">
-          <date variable="issued">
-            <date-part name="year" range-delimiter="-"/>
-          </date>
-          <choose>
-            <if variable="original-date">
-              <date variable="original-date" prefix="[" suffix="]">
-                <date-part name="year" range-delimiter="-"/>
-              </date>
-            </if>
-          </choose>
-        </if>
-        <else>
-          <text term="no date" form="short"/>
-        </else>
-      </choose>
-    </group>
-  </macro>
   <macro name="edition">
     <choose>
       <if is-numeric="edition">
@@ -189,7 +168,7 @@
     <layout prefix="(" suffix=")" delimiter="; ">
       <text macro="author-short" suffix=", "/>
       <group delimiter=": ">
-        <text macro="year-date"/>
+        <text macro="issued"/>
         <group>
           <label variable="locator" form="short"/>
           <text variable="locator"/>
@@ -200,7 +179,7 @@
   <bibliography hanging-indent="true" et-al-min="4" et-al-use-first="1">
     <sort>
       <key macro="author"/>
-      <key macro="year-date"/>
+      <key macro="issued"/>
     </sort>
     <layout>
       <group delimiter=", " suffix=".">
