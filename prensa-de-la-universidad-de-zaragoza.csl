@@ -266,17 +266,12 @@
               <text macro="title"/>
               <text macro="editor"/>
             </group>
-            <text variable="container-title" font-style="italic" prefix=" " suffix="."/>
             <text variable="medium" />
             <text macro="publisher" />
             <group delimiter=" ">
               <group>
                 <text variable="volume"/>
                 <text variable="issue" prefix=" (" suffix=")"/>
-              </group>
-              <group delimiter=" ">
-                <label variable="page" form="short"/>
-                <text macro="pages"/>
               </group>
             </group>
           </else-if>
@@ -285,7 +280,7 @@
               <text macro="title"/>
               <text macro="editor"/>
             </group>
-            <text variable="container-title" font-style="italic" prefix=" " suffix="."/>
+            <text variable="container-title" font-style="italic" prefix=" " />
             <group delimiter=" ">
               <group>
                 <text variable="volume"/>
@@ -298,7 +293,7 @@
             </group>
           </else>
         </choose>
-        <text prefix=" " macro="access" suffix="."/>
+        <text macro="access" />
       </group>
     </layout>
   </bibliography>
