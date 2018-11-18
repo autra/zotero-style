@@ -87,9 +87,9 @@
         <group prefix=" [" suffix="]">
           <text term="accessed" text-case="capitalize-first" suffix=": "/>
           <date variable="accessed">
-            <date-part name="day" suffix=" " range-delimiter="-"/>
-            <date-part name="month" suffix=" " range-delimiter="-"/>
             <date-part name="year" range-delimiter="-"/>
+            <date-part name="month" form="numeric-leading-zeros" range-delimiter="-"/>
+            <date-part name="day" range-delimiter="-"/>
           </date>
         </group>
       </if>
