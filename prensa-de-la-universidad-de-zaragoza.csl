@@ -158,7 +158,7 @@
       <if type="article-newspaper" match="any">
         <date variable="issued" delimiter="-">
           <date-part name="year" range-delimiter="-"/>
-          <date-part name="month" format="numeric-leading-zeros" range-delimiter="-"/>
+          <date-part name="month" form="numeric-leading-zeros" range-delimiter="-"/>
           <date-part name="day" range-delimiter="-"/>
         </date>
       </if>
