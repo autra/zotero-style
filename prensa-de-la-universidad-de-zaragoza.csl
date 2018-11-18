@@ -223,8 +223,10 @@
             <text macro="title" prefix="«" suffix="»"/>
             <text macro="editor" prefix=" "/>
             <text variable="container-title" font-style="italic" prefix=" " />
-            <text variable="volume"/>
-            <text variable="issue" prefix=" (" suffix=")"/>
+            <group delimiter=" ">
+              <number variable="volume" form="roman" font-variant="small-caps" />
+              <text variable="issue" prefix=" (" suffix=")"/>
+            </group>
             <text macro="pages"/>
           </else-if>
           <else-if type="book" match="any">
@@ -268,12 +270,7 @@
             </group>
             <text variable="medium" />
             <text macro="publisher" />
-            <group delimiter=" ">
-              <group>
-                <text variable="volume"/>
-                <text variable="issue" prefix=" (" suffix=")"/>
-              </group>
-            </group>
+            <number variable="volume" form="roman" font-variant="small-caps" />
           </else-if>
           <else>
             <group delimiter=" ">
@@ -281,15 +278,10 @@
               <text macro="editor"/>
             </group>
             <text variable="container-title" font-style="italic" prefix=" " />
+            <number variable="volume" form="roman" font-variant="small-caps" />
             <group delimiter=" ">
-              <group>
-                <text variable="volume"/>
-                <text variable="issue" prefix=" (" suffix=")"/>
-              </group>
-              <group delimiter=" ">
-                <label variable="page" form="short"/>
-                <text macro="pages"/>
-              </group>
+              <label variable="page" form="short"/>
+              <text macro="pages"/>
             </group>
           </else>
         </choose>
