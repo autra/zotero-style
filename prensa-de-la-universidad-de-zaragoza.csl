@@ -196,7 +196,12 @@
             <text variable="container-title"/>
           </else-if>
           <else-if type="article-journal article-newspaper broadcast personal_communication thesis" match="any">
-            <text macro="title" prefix="«" suffix="»"/>
+            <if variable="title" match="any">
+              <text variable="title" prefix="«" suffix="»"/>
+            </if>
+            <else>
+              <text value="[sin título]" />
+            </else>
             <text macro="editor" prefix=" "/>
             <text variable="container-title" font-style="italic" prefix=" " />
             <group delimiter=" ">
