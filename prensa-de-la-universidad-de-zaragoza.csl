@@ -86,7 +86,7 @@
         <text variable="URL" prefix="&lt;" suffix="&gt;" />
         <group prefix=" [" suffix="]">
           <text term="accessed" text-case="capitalize-first" suffix=": "/>
-          <date variable="accessed">
+          <date variable="accessed" delimiter="-">
             <date-part name="year" range-delimiter="-"/>
             <date-part name="month" form="numeric-leading-zeros" range-delimiter="-"/>
             <date-part name="day" form="numeric-leading-zeros" range-delimiter="-"/>
