@@ -89,7 +89,7 @@
           <date variable="accessed">
             <date-part name="year" range-delimiter="-"/>
             <date-part name="month" form="numeric-leading-zeros" range-delimiter="-"/>
-            <date-part name="day" range-delimiter="-"/>
+            <date-part name="day" form="numeric-leading-zeros" range-delimiter="-"/>
           </date>
         </group>
       </if>
@@ -138,7 +138,7 @@
         <date variable="issued" delimiter="-">
           <date-part name="year" range-delimiter="-"/>
           <date-part name="month" form="numeric-leading-zeros" range-delimiter="-"/>
-          <date-part name="day" range-delimiter="-"/>
+          <date-part name="day" form="numeric-leading-zeros" range-delimiter="-"/>
         </date>
       </if>
       <else>
