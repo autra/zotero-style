@@ -97,12 +97,9 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="book webpage graphic" match="any">
+      <if variable="container-title" match="none">
         <text variable="title" font-style="italic"/>
       </if>
-      <else-if variable="container-title" match="none">
-        <text variable="title" font-style="italic"/>
-      </else-if>
       <else>
         <text variable="title"/>
       </else>
@@ -194,7 +191,7 @@
             <text macro="publisher"/>
           </if>
           <else-if type="webpage">
-            <text macro="title"/>
+            <text variable="title" font-style="italic"/>
             <text macro="edition"/>
             <text variable="container-title"/>
           </else-if>
@@ -209,15 +206,14 @@
             <text macro="pages"/>
           </else-if>
           <else-if type="book" match="any">
-            <text variable="note"/>
-            <text macro="title"/>
+            <text variable="title" font-style="italic"/>
             <text macro="edition"/>
             <text macro="editor"/>
             <text macro="publisher"/>
           </else-if>
           <else-if type="graphic" match="any">
             <text variable="note"/>
-            <text macro="title"/>
+            <text variable="title" font-style="italic"/>
             <text variable="medium" />
             <text variable="dimensions" />
             <text variable="archive" />
